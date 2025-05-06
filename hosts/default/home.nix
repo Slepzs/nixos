@@ -21,7 +21,7 @@
   home.stateVersion = "24.11"; # Please read the comment before changing.
 
 
-
+  xdg.enable = true;
   nixpkgs.config.allowUnfree = true;
   
   programs.zsh.enable = true;  
@@ -46,6 +46,9 @@
     spotify
     obsidian
     alacritty
+    beekeeper-studio
+
+
 
     # Development stuff
     python3
