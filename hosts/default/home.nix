@@ -33,10 +33,11 @@
     # set the Hyprland and XDPH packages to null to use the ones from the NixOS module
     settings = {
       "$terminal" = "ghostty"; # or alacritty, or whatever you install 
-      "$menu" = "${pkgs.wofi}/bin/wofi --show drun"; # Define a variable for your launcher command
+      "$menu" = "wofi"; # Define a variable for your launcher command
 
       exec-once = [
         "$terminal" # Launch a terminal on startup so you're not lost
+        "waybar"
         # "swaybg -i /path/to/your/wallpaper.png" # Set a wallpaper (see Necessary Packages below)
         # "mako" # Start notification daemon (see Necessary Packages below)
       ];
@@ -51,7 +52,7 @@
         "SUPER, M, exit,"                  # Exit Hyprland (logout)
         "SUPER, RETURN, exec, $terminal"   # Open terminal (SUPER is usually the Windows key)
         # "SUPER, D, exec, wofi --show drun" # App launcher (see Necessary Packages below)
-        "SUPER, D exec, $menu"
+        "SUPER, D, exec, $menu"
       ];
 
       general = {
@@ -93,6 +94,9 @@
     wofi
     mako
     wl-clipboard
+    aider-chat
+    waybar
+
 
     # Development stuff
     python3

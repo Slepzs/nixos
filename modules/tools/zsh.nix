@@ -16,6 +16,7 @@
       # Set editor environment variables
       export EDITOR=nvim
       export VISUAL="$EDITOR"
+      export GEMINI_API_KEY=AIzaSyA8ScMLe82pez3wijWEYUlQTRRhhi2fuTQ
 
       # Source Ghostty shell integration script
       if [ -f "${pkgs.ghostty}/share/ghostty/integration/ghostty.sh" ]; then
