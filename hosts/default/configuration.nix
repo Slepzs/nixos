@@ -92,6 +92,32 @@
     shell = pkgs.zsh;
   };
 
+  # Allow nixos user to use docker
+  virtualisation.docker.enable = true;
+  users.extraGroups.docker.members = [ "tobias" ];
+
+
+  # --- Hyprland System Setup ---
+  programs.hyprland = {
+    enable = true;
+    # package = pkgs.hyprland; # This is the default, explicitly stating it
+    # xwayland.enable = true; # If you need XWayland for X11 apps
+    # portalPackage = pkgs.xdg-desktop-portal-hyprland; # Default, explicit
+  };
+  
+  # If you chose Option B for flake.nix (Hyprland from its own flake via overlay),
+  # pkgs.hyprland will automatically point to the overlaid version.
+
+  # Enable XDG Desktop Portal Hyprland
+  # This is crucial for screen sharing, file pickers etc. in Wayland
+  xdg.portal = {
+    enable = true;
+    # extraPortals = [ pkgs.xdg-desktop-portal-gtk ]; # If you use GTK apps extensively
+    # The hyprland module should enable xdg-desktop-portal-hyprland automatically
+    # but to be sure:
+    extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+  };
+
   home-manager = {
     backupFileExtension = "hmbackup";
 

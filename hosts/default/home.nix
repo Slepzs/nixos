@@ -21,10 +21,54 @@
   home.stateVersion = "24.11"; # Please read the comment before changing.
 
 
-  xdg.enable = true;
+
   nixpkgs.config.allowUnfree = true;
   
   programs.zsh.enable = true;  
+  
+  programs.kitty.enable = true;
+
+  wayland.windowManager.hyprland = {
+    enable = true;
+    # set the Hyprland and XDPH packages to null to use the ones from the NixOS module
+    settings = {
+      "$terminal" = "ghostty"; # or alacritty, or whatever you install 
+      "$menu" = "${pkgs.wofi}/bin/wofi --show drun"; # Define a variable for your launcher command
+
+      exec-once = [
+        "$terminal" # Launch a terminal on startup so you're not lost
+        # "swaybg -i /path/to/your/wallpaper.png" # Set a wallpaper (see Necessary Packages below)
+        # "mako" # Start notification daemon (see Necessary Packages below)
+      ];
+
+      input = {
+        kb_layout = "us"; # CHANGE THIS to your layout (e.g., de, fr)
+        follow_mouse = 1;
+      };
+
+      bind = [
+        "SUPER, Q, killactive,"            # Close active window
+        "SUPER, M, exit,"                  # Exit Hyprland (logout)
+        "SUPER, RETURN, exec, $terminal"   # Open terminal (SUPER is usually the Windows key)
+        # "SUPER, D, exec, wofi --show drun" # App launcher (see Necessary Packages below)
+        "SUPER, D exec, $menu"
+      ];
+
+      general = {
+        gaps_in = 5;
+        gaps_out = 10;
+        border_size = 2;
+        "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
+        "col.inactive_border" = "rgba(595959aa)";
+        layout = "dwindle";
+      };
+      decoration.rounding = 5;
+
+
+    };
+    package = null;
+    portalPackage = null;
+  };
 
   # Enable zoxide integration
   programs.zoxide = {
@@ -46,9 +90,9 @@
     spotify
     obsidian
     alacritty
-    beekeeper-studio
-
-
+    wofi
+    mako
+    wl-clipboard
 
     # Development stuff
     python3

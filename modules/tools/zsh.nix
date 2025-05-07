@@ -9,7 +9,7 @@
     syntaxHighlighting.enable = true;
     shellAliases = {
       ll = "ls -l";
-      update = "sudo nixos-rebuild switch --flake .#nixos"; # Or home-manager switch
+      update = "sudo nixos-rebuild switch --flake ~/nixos-config#nixos"; # Or home-manager switch
       gc = "nix-collect-garbage -d";
     };
     initContent = ''
