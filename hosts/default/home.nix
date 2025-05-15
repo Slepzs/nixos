@@ -5,7 +5,7 @@
     ../../modules/tools/zsh.nix
     ../../modules/tools/ghostty.nix
     ../../modules/tools/starship.nix
-    ../../modules/hyprland.nix
+    ../../modules/tools/hyprland.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -21,13 +21,13 @@
   # release notes.
   home.stateVersion = "24.11"; # Please read the comment before changing.
 
-
-
   nixpkgs.config.allowUnfree = true;
   
   programs.zsh.enable = true;  
   
   programs.kitty.enable = true;
+
+
 
   # Enable zoxide integration
   programs.zoxide = {
@@ -54,6 +54,9 @@
     wl-clipboard
     aider-chat
     waybar
+    swaybg
+    bruno
+
 
 
     # Development stuff
@@ -64,6 +67,7 @@
     lazygit
     aider-chat
     devenv
+    pnpm_10
     # Fonts
 
     # # It is sometimes useful to fine-tune packages, for example, by applying

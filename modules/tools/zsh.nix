@@ -11,6 +11,7 @@
       ll = "ls -l";
       update = "sudo nixos-rebuild switch --flake ~/nixos-config#nixos"; # Or home-manager switch
       gc = "nix-collect-garbage -d";
+      ghelp = "ghostty +list-keybinds --default";
     };
     initContent = ''
       # Set editor environment variables

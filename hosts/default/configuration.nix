@@ -18,6 +18,7 @@
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 	
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ]; 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -79,6 +80,7 @@
     #media-session.enable = true;
   };
 
+  nix.settings.trusted-users = [ "root" "tobias" ];
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
   # Define a user account. Don't forget to set a password with ‘passwd’.
