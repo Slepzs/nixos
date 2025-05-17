@@ -6,6 +6,7 @@
     ../../modules/tools/ghostty.nix
     ../../modules/tools/starship.nix
     ../../modules/tools/hyprland.nix
+    ../../modules/tools/waybar/waybar.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -56,6 +57,7 @@
     waybar
     swaybg
     bruno
+    pavucontrol
 
 
 
@@ -69,7 +71,12 @@
     devenv
     pnpm_10
     # Fonts
-
+    nerd-fonts.fantasque-sans-mono
+    nerd-fonts.fira-code
+    nerd-fonts.fira-mono
+    nerd-fonts.geist-mono
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.mononoki
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of

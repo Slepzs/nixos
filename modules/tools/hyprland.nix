@@ -19,7 +19,7 @@
       exec-once = [
         "$terminal"
         "waybar"
-        # "swaybg -i /path/to/your/wallpaper.png" # Ensure this path is valid or use a package
+        "swaybg -i ../wallpapers/wallpaper.jpg" # Ensure this path is valid or use a package
         # "mako"
       ];
 
@@ -30,7 +30,16 @@
       ];
 
       "workspace" = [
-        "10, name:t, monitor:DP-2"
+        "1, monitor:DP-2"
+        "2, monitor:DP-2"
+        "3, monitor:HDMI-A-1" 
+        "4, monitor:HDMI-A-1" 
+        "name:t, monitor:DP-2"
+        "name:g, monitor:HDMI-A-1"
+        "name:p, monitor:HDMI-A-1"
+        "name:b, monitor:DP-2"
+        "name:n, monitor:DP-2"
+        "name:m, monitor:DP-2"
       ];
 
       input = {
@@ -80,23 +89,31 @@
         "$mainMod, up, movefocus, u"
         "$mainMod, down, movefocus, d"
 
-        # Switch workspaces with $mainMod + [0-9]
-        "$mainMod, 1, workspace, 1"
-        "$mainMod, 2, workspace, 2"
-        "$mainMod, 3, workspace, 3"
-        # ... and so on for other workspaces
 
         "ALT_SHIFT, F, fullscreen" # Note: Using ALT_SHIFT as per your original
 
-        # Move active window to a workspace with ALT_SHIFT + [0-9]
-        "ALT_SHIFT, 1, movetoworkspace, 1"
-        "ALT_SHIFT, 2, movetoworkspace, 2"
-        "ALT_SHIFT, 3, movetoworkspace, 3"
-        "ALT_SHIFT, T, movetoworkspace, T" # Note: 'T' might conflict if it's a named workspace like 't' above. Consider using a number or different key.
-        # ... and so on
+
+        # Switch workspaces with ALT_SHIFT + [0-9]
+        "ALT_SHIFT, 1, workspace, 1"
+        "ALT_SHIFT, 2, workspace, 2"
+        "ALT_SHIFT, 3, workspace, 3"
+        
+      # Switch to other named workspaces using ALT_SHIFT + letter
+        "ALT_SHIFT, G, workspace, name:g"
+        "ALT_SHIFT, B, workspace, name:b"
+        "ALT_SHIFT, N, workspace, name:n"
+        "ALT_SHIFT, M, workspace, name:m"
+        "ALT_SHIFT, T, workspace, name:t"
+        "ALT_SHIFT, P, workspace, name:p"
 
         # Keybinding to enter the resize submap
-        "$mainMod+SHIFT, R, submap, resizeMode" # Using $mainMod_SHIFT for SUPER+SHIFT
+        "ALT_SHIFT, R, submap, resize" # Changed to ALT_SHIFT, R and submap name to 'resize'
+        # Keybinding to enter the movewindow submap
+        "ALT_SHIFT, V, submap, movewindow"
+      ];
+
+      bindm = [
+        "$mainMod, mouse:272, movewindow"
       ];
 
 
@@ -113,18 +130,47 @@
       submap = resize
 
       # sets repeatable binds for resizing the active window within the 'resize' submap
-      binde = , right, resizeactive, 10 0
-      binde = , left, resizeactive, -10 0
-      binde = , up, resizeactive, 0 -10
-      binde = , down, resizeactive, 0 10
+      # h j k l for left, down, up, right (vim-like)
+      binde = , h, resizeactive, -10 0  # Resize left
+      binde = , j, resizeactive, 0 10   # Resize down
+      binde = , k, resizeactive, 0 -10  # Resize up
+      binde = , l, resizeactive, 10 0   # Resize right
+
+      bind = , f, togglefloating,        # Toggle floating with f
 
       # use reset to go back to the global submap from within the 'resize' submap
-      bind = , escape, submap, reset 
+      bind = , escape, submap, reset
 
       # will reset the submap, which will return to the global submap
       # Any keybinds defined after this in extraConfig or in hyprland.conf
       # would be global again.
       submap = reset
+
+      # --- movewindow submap ---
+      # will start a submap called "movewindow"
+      submap = movewindow
+
+      # binds for moving the active window to a workspace within the 'movewindow' submap
+      bind = , 1, movetoworkspace, 1
+      bind = , 2, movetoworkspace, 2
+      bind = , 3, movetoworkspace, 3
+      # bind = , 4, movetoworkspace, 4 # Add more numbers if you have them defined
+      # bind = , 5, movetoworkspace, 5
+      # ...
+
+      bind = , T, movetoworkspace, name:t
+      bind = , G, movetoworkspace, name:g
+      bind = , B, movetoworkspace, name:b
+      bind = , N, movetoworkspace, name:n
+      bind = , M, movetoworkspace, name:m
+      bind = , P, movetoworkspace, name:p
+
+      # use reset to go back to the global submap from within the 'movewindow' submap
+      bind = , escape, submap, reset
+
+      # will reset the submap, which will return to the global submap
+      submap = reset
+      # --- end of movewindow submap ---
 
       # keybinds further down (if any were added here) would be global again...
       # Or, if you have more global binds in your settings.bind above,
@@ -134,5 +180,5 @@
 
   }; # Closes wayland.windowManager.hyprland
 
-  
+ 
 } # Closes the main module definition
