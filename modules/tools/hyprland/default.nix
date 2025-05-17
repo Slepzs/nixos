@@ -1,6 +1,14 @@
 # modules/tools/hyprland.nix
 { pkgs, lib, config, ... }: # It's good practice to include lib and config for more complex modules
 
+let
+  # Define the path to your wallpaper. Nix will make this an absolute path to the file in the Nix store.
+  # Adjusted path for when this file is moved to modules/tools/hyprland/default.nix
+  wallpaperPath = ../../wallpapers/wallpaper.jpg;
+
+  # Import animation settings. This path is relative to the new location of this file.
+  animationsSettings = import ./animations.nix;
+in
 {
   # This defines a home-manager module option, allowing you to enable/disable hyprland setup easily.
   # You could also directly configure wayland.windowManager.hyprland here if not making it optional.
@@ -19,7 +27,7 @@
       exec-once = [
         "$terminal"
         "waybar"
-        "swaybg -i ../wallpapers/wallpaper.jpg" # Ensure this path is valid or use a package
+        "swaybg -o '*' -i ${wallpaperPath}" # Wallpaper path managed by Nix, explicitly target all outputs
         # "mako"
       ];
 
@@ -68,6 +76,7 @@
         "col.inactive_border" = "rgba(595959aa)";
         layout = "dwindle"; # or master
       };
+      animations = animationsSettings; # Add the imported animation settings
       dwindle = {
         preserve_split = true;
         # smart_resizing = false;
@@ -89,6 +98,11 @@
         "$mainMod, up, movefocus, u"
         "$mainMod, down, movefocus, d"
 
+        # Swap windows with ALT_SHIFT + h/j/k/l
+        "ALT_SHIFT, H, swapwindow, l" # h for left
+        "ALT_SHIFT, J, swapwindow, d" # j for down
+        "ALT_SHIFT, K, swapwindow, u" # k for up
+        "ALT_SHIFT, L, swapwindow, r" # l for right
 
         "ALT_SHIFT, F, fullscreen" # Note: Using ALT_SHIFT as per your original
 

@@ -5,7 +5,7 @@
     ../../modules/tools/zsh.nix
     ../../modules/tools/ghostty.nix
     ../../modules/tools/starship.nix
-    ../../modules/tools/hyprland.nix
+    ../../modules/tools/hyprland # Updated path
     ../../modules/tools/waybar/waybar.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
