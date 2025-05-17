@@ -98,6 +98,12 @@ in
         "$mainMod, up, movefocus, u"
         "$mainMod, down, movefocus, d"
 
+        # Move focus with ALT + H/J/K/L (vim-like)
+        "ALT, H, movefocus, l" # h for left
+        "ALT, J, movefocus, d" # j for down
+        "ALT, K, movefocus, u" # k for up
+        "ALT, L, movefocus, r" # l for right
+
         # Swap windows with ALT_SHIFT + h/j/k/l
         "ALT_SHIFT, H, swapwindow, l" # h for left
         "ALT_SHIFT, J, swapwindow, d" # j for down

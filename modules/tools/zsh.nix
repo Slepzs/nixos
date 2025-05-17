@@ -13,6 +13,7 @@
       gc = "nix-collect-garbage -d";
       ghelp = "ghostty +list-keybinds --default";
       xaider = "aider --no-auto-commit --model gemini";
+      y = "yazi";
     };
     initContent = ''
       # Set editor environment variables

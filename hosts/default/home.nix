@@ -4,7 +4,7 @@
   imports = [
     ../../modules/tools/zsh.nix
     ../../modules/tools/ghostty.nix
-    ../../modules/tools/starship.nix
+    ../../modules/tools/starship
     ../../modules/tools/hyprland # Updated path
     ../../modules/tools/waybar/waybar.nix
   ];
@@ -46,6 +46,7 @@
     ripgrep
     fd
     bat
+    oh-my-zsh
     zoxide
     spotify
     obsidian
