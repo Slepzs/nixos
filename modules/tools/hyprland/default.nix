@@ -114,17 +114,17 @@ in
 
 
         # Switch workspaces with ALT_SHIFT + [0-9]
-        "ALT_SHIFT, 1, workspace, 1"
-        "ALT_SHIFT, 2, workspace, 2"
-        "ALT_SHIFT, 3, workspace, 3"
+        "$mainMod_SHIFT, 1, workspace, 1"
+        "$mainMod_SHIFT, 2, workspace, 2"
+        "$mainMod_SHIFT, 3, workspace, 3"
         
       # Switch to other named workspaces using ALT_SHIFT + letter
-        "ALT_SHIFT, G, workspace, name:g"
-        "ALT_SHIFT, B, workspace, name:b"
-        "ALT_SHIFT, N, workspace, name:n"
-        "ALT_SHIFT, M, workspace, name:m"
-        "ALT_SHIFT, T, workspace, name:t"
-        "ALT_SHIFT, P, workspace, name:p"
+        "$mainMod_SHIFT, G, workspace, name:g"
+        "$mainMod_SHIFT, B, workspace, name:b"
+        "$mainMod_SHIFT, N, workspace, name:n"
+        "$mainMod_SHIFT, M, workspace, name:m"
+        "$mainMod_SHIFT, T, workspace, name:t"
+        "$mainMod_SHIFT, P, workspace, name:p"
 
         # Keybinding to enter the resize submap
         "ALT_SHIFT, R, submap, resize" # Changed to ALT_SHIFT, R and submap name to 'resize'

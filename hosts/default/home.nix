@@ -7,6 +7,7 @@
     ../../modules/tools/starship
     ../../modules/tools/hyprland # Updated path
     ../../modules/tools/waybar/waybar.nix
+    ../../modules/tools/wofi
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -37,6 +38,12 @@
     enableZshIntegration = true; # This is often implied by programs.zsh.enable but good to be explicit
   };
 
+  programs.direnv = {
+      enable = true;
+      enableBashIntegration = true; # see note on other shells below
+      nix-direnv.enable = true;
+  };
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
@@ -50,7 +57,6 @@
     zoxide
     spotify
     obsidian
-    alacritty
     wofi
     mako
     wl-clipboard
@@ -59,6 +65,7 @@
     swaybg
     bruno
     pavucontrol
+    flameshot
 
 
 
