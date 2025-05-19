@@ -27,7 +27,6 @@
   
   programs.zsh.enable = true;  
   
-  programs.kitty.enable = true;
 
 
 
@@ -60,12 +59,14 @@
     wofi
     mako
     wl-clipboard
+    cliphist
     aider-chat
     waybar
     swaybg
     bruno
     pavucontrol
     flameshot
+    rofi
 
 
 
@@ -78,6 +79,7 @@
     aider-chat
     devenv
     pnpm_10
+    biome
     # Fonts
     nerd-fonts.fantasque-sans-mono
     nerd-fonts.fira-code

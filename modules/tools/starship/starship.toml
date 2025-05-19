@@ -70,11 +70,13 @@ symbol = ""
 style = "bg:#212736"
 format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
 
-[nix_shell]
-symbol = "󱄅 " # Nix flake icon with a space
-style = "bg:#212736" # Style to match the segment for dev tools
-format = '[[ $symbol$state${name:+ ($name)} ](fg:#769ff0 bg:#212736)]($style)' # Shows state (e.g. pure, develop) and name if available
-disabled = false
+# [nix_shell]
+# symbol = "󱄅 " # Nix flake icon with a space
+# style = "bg:#212736" # Style to match the segment for dev tools
+# # Shows state (e.g. pure, develop) and name if available
+# # Corrected line:
+# format = '[[ $symbol$state${name:+ (($name)\)} ](fg:#769ff0 bg:#212736)]($style)'
+# disabled = false
 
 [time]
 disabled = false

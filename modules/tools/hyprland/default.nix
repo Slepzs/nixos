@@ -28,6 +28,7 @@ in
         "$terminal"
         "waybar"
         "swaybg -o '*' -i ${wallpaperPath}" # Wallpaper path managed by Nix, explicitly target all outputs
+        "wl-paste --watch cliphist store"
         # "mako"
       ];
 
