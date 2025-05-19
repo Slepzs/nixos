@@ -21,7 +21,7 @@ in
 
     settings = {
       "$terminal" = "ghostty";
-      "$menu" = "wofi --show=drun";
+      "$menu" = "rofi -show drun"; # Changed wofi to rofi
       "$mainMod" = "SUPER"; # Define mainMod for convenience
 
       exec-once = [
@@ -89,6 +89,7 @@ in
         "$mainMod, M, exit,"
         # "$mainMod, E, exec, nemo" # Example: file manager, ensure 'nemo' is installed
         "$mainMod, V, togglefloating,"
+        "$mainMod, RETURN, exec, $menu" # Added Super + Enter for Rofi
         "$mainMod, R, exec, $menu" # Changed from SUPER to $mainMod for consistency
         "$mainMod, P, pseudo," # dwindle
         "$mainMod, J, togglesplit," # dwindle

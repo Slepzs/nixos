@@ -8,6 +8,7 @@
     ../../modules/tools/hyprland # Updated path
     ../../modules/tools/waybar/waybar.nix
     ../../modules/tools/wofi
+    ../../modules/tools/rofi
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -66,7 +67,6 @@
     bruno
     pavucontrol
     flameshot
-    rofi
 
 
 
