@@ -44,6 +44,8 @@
       nix-direnv.enable = true;
   };
 
+
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
@@ -67,6 +69,9 @@
     bruno
     pavucontrol
     flameshot
+    ngrok
+    zed
+    slack
 
 
 
@@ -80,7 +85,9 @@
     devenv
     pnpm_10
     biome
+    nodePackages.neovim
     # Fonts
+
     nerd-fonts.fantasque-sans-mono
     nerd-fonts.fira-code
     nerd-fonts.fira-mono

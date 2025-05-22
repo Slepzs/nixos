@@ -49,6 +49,7 @@ in
         "name:b, monitor:DP-2"
         "name:n, monitor:DP-2"
         "name:m, monitor:DP-2"
+        "name:s, monitor:DP-2"
       ];
 
       input = {
@@ -112,6 +113,7 @@ in
         "ALT_SHIFT, K, swapwindow, u" # k for up
         "ALT_SHIFT, L, swapwindow, r" # l for right
 
+
         "ALT_SHIFT, F, fullscreen" # Note: Using ALT_SHIFT as per your original
 
 
@@ -127,6 +129,7 @@ in
         "$mainMod_SHIFT, M, workspace, name:m"
         "$mainMod_SHIFT, T, workspace, name:t"
         "$mainMod_SHIFT, P, workspace, name:p"
+        "$mainMod_SHIFT, S, workspace, name:s"
 
         # Keybinding to enter the resize submap
         "ALT_SHIFT, R, submap, resize" # Changed to ALT_SHIFT, R and submap name to 'resize'
@@ -186,6 +189,7 @@ in
       bind = , N, movetoworkspace, name:n
       bind = , M, movetoworkspace, name:m
       bind = , P, movetoworkspace, name:p
+      bind = , S, movetoworkspace, name:s
 
       # use reset to go back to the global submap from within the 'movewindow' submap
       bind = , escape, submap, reset
