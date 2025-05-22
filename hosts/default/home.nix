@@ -62,7 +62,6 @@
     wofi
     mako
     wl-clipboard
-    cliphist
     aider-chat
     waybar
     swaybg
@@ -72,6 +71,8 @@
     ngrok
     zed
     slack
+    google-chrome
+    clipse
 
 
 

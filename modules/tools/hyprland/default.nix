@@ -29,6 +29,8 @@ in
         "waybar"
         "swaybg -o '*' -i ${wallpaperPath}" # Wallpaper path managed by Nix, explicitly target all outputs
         "wl-paste --watch cliphist store"
+        "clipse -listen"
+
         # "mako"
       ];
 
@@ -47,6 +49,7 @@ in
         "name:g, monitor:HDMI-A-1"
         "name:p, monitor:HDMI-A-1"
         "name:b, monitor:DP-2"
+        "name:v, monitor:DP-2"
         "name:n, monitor:DP-2"
         "name:m, monitor:DP-2"
         "name:s, monitor:DP-2"
@@ -84,8 +87,19 @@ in
         # smart_resizing = false;
       };
 
+      windowrulev2 = [
+        "float, class:clipse"
+        "size 622 652, class:clipse"
+      ];
+
+      unbind = [
+        "$mainMod, V"
+      ];
+
       # Main keybindings
       bind = [
+
+        # Programs -----
         "$mainMod, Q, killactive,"
         "$mainMod, M, exit,"
         # "$mainMod, E, exec, nemo" # Example: file manager, ensure 'nemo' is installed
@@ -94,6 +108,8 @@ in
         "$mainMod, R, exec, $menu" # Changed from SUPER to $mainMod for consistency
         "$mainMod, P, pseudo," # dwindle
         "$mainMod, J, togglesplit," # dwindle
+        "$mainMod, V, exec, ghostty --class clipse -e clipse"
+
 
         # Move focus with $mainMod + arrow keys
         "$mainMod, left, movefocus, l"
@@ -130,6 +146,7 @@ in
         "$mainMod_SHIFT, T, workspace, name:t"
         "$mainMod_SHIFT, P, workspace, name:p"
         "$mainMod_SHIFT, S, workspace, name:s"
+        "$mainMod_SHIFT, V, workspace, name:v"
 
         # Keybinding to enter the resize submap
         "ALT_SHIFT, R, submap, resize" # Changed to ALT_SHIFT, R and submap name to 'resize'
@@ -190,6 +207,7 @@ in
       bind = , M, movetoworkspace, name:m
       bind = , P, movetoworkspace, name:p
       bind = , S, movetoworkspace, name:s
+      bind = , V, movetoworkspace, name:v
 
       # use reset to go back to the global submap from within the 'movewindow' submap
       bind = , escape, submap, reset
